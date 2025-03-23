@@ -27,7 +27,7 @@ function icrementStats() {
       const target = +counter.getAttribute("data-target");
       const c = +counter.innerText;
 
-      const increment = target / 1000;
+      const increment = target / 50000;
 
       if (c < target) {
         counter.innerText = Math.ceil(c + increment);
@@ -43,4 +43,8 @@ function icrementStats() {
 //EVENT LISTENERS
 document.addEventListener("DOMContentLoaded", userScroll);
 document.addEventListener("DOMContentLoaded", icrementStats);
-document.querySelector(".to-top-btn").addEventListener("click", scrollUp);
+document.addEventListener("DOMContentLoaded", () => {
+  userScroll();
+  icrementStats();
+  document.querySelector(".to-top-btn").addEventListener("click", scrollUp);
+});
